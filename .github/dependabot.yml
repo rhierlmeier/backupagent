@@ -1,0 +1,21 @@
+version: 2
+updates:
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+    ignore:
+      # restic minor and major updates need a manual review. For restic,
+      # 0.18 -> 0.19 is formally a minor, in practice a feature release that may
+      # change the repository format. This image ships restic to every backup
+      # job at once, so an unreviewed bump spreads widely. Patches still come
+      # in automatically.
+      - dependency-name: restic/restic
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-major
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
