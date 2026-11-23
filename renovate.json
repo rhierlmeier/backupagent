@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "pinDigests": true,
+  "packageRules": [
+    {
+      "description": "restic minor and major updates need a manual review. For restic, 0.18 -> 0.19 is formally a minor, in practice a feature release that may change the repository format. This image ships restic to every backup job at once, so an unreviewed bump spreads widely. Patches still come in automatically.",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["restic/restic"],
+      "matchUpdateTypes": ["minor", "major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
