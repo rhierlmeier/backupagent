@@ -7,7 +7,7 @@
 #   - as a CronJob trigger: runs `kubectl exec sts/<app> -c backup-agent --
 #     /scripts/backup.sh` (command override)
 
-FROM registry.k8s.io/kubectl:v1.37.2@sha256:fe049faa65ae483ac200009a949a68fa4c9985daea12c9cb1195c9c7965301fc AS kubectl
+FROM registry.k8s.io/kubectl:v1.37.3@sha256:82f06779a0dcd86225ffdb96c005418b9716093a39907a5ecf686d7a22e6b788 AS kubectl
 FROM rclone/rclone:1.76@sha256:7cbeec24a44f206067597c0368be4de90ae19a64d5113c7d1938bd737a81e466 AS rclone
 FROM restic/restic:0.20.0@sha256:93999df80d4ac6cb148e82d2ef1fe6a81996f17ff535e772723538211b31555a AS restic
 
